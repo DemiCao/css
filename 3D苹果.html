@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>3D苹果</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body {
+      background: black;
+      perspective: 800px;
+    }
+
+    #apple {
+      width: 500px;
+      height: 450px;
+      margin: 100px auto;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotate 3s linear infinite;
+    }
+    @keyframes rotate{
+      from{
+        transform: rotateY(0deg) rotateX(0);
+      }
+      to{
+        transform: rotateY(360deg) rotateX(360deg);
+      }
+    }
+    #apple div{
+      position: absolute;
+      border: 2px solid red;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 450px;
+      border-right: 0;
+      border-radius: 50% 50% 30% 70%/30% 30% 20% 70%;
+      transform-origin: right;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="apple">
+  </div>
+
+  <script type="text/javascript">
+    var apple = document.getElementById('apple');
+    for (let i = 0; i < 72; i++) {
+      let oDiv = document.createElement("div");
+      oDiv.style.transform = 'rotateY(' + 5 * i + 'deg)';
+      apple.appendChild(oDiv)
+    }
+  </script>
+</body>
+
+</html>
